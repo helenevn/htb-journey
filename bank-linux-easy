@@ -1,0 +1,6 @@
+Level: Easy
+
+Task: find user.txt and root.txt file on the victim’s machine.
+
+Since these labs are online accessible therefore they have static IP. The IP of Bank is 10.10.10.29
+
