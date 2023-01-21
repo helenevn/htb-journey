@@ -4,3 +4,26 @@ Task: find user.txt and root.txt file on the victim’s machine.
 
 Since these labs are online accessible therefore they have static IP. The IP of Bank is 10.10.10.29
 
+---
+
+initiate with nmap port enumeration 
+
+nmap -A 10.10.10.29
+
+discovered ports 22, 53, 80 are open 
+
+add target ip in /etc/host file
+
+edit bank.htb as domain name
+
+explore it through a web browser to find login page
+
+use dirbuster tool & pick 
+
+directory list 2-3 medium.txt
+
+for directory brute force attack
+
+install noredirect plugin to stop any 302 redirections
+
+(in progress)
